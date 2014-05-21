@@ -79,7 +79,9 @@ class mongodb::server::config {
       group   => $group,
       require => File[$config]
     }
-  } else {
+  }elsif ($ensure == 'notcreate') {
+    
+  }else {
     file { $dbpath:
       ensure => absent,
       force  => true,
